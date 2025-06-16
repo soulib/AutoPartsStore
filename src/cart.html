@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина - AutoParts</title>
+  
+  
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* Дополнительные стили для корзины */
+    .cart-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .cart-empty {
+      text-align: center;
+      padding: 3rem 0;
+      display: none;
+    }
+    
+    .cart-empty p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cart-items {
+      margin: 2rem 0;
+    }
+    
+    .cart-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
+    }
+    
+    .cart-item-image {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+    
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    
+    .cart-item-info {
+      flex-grow: 1;
+    }
+    
+    .cart-item-title {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .cart-item-price {
+      font-weight: 500;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cart-item-quantity {
+      min-width: 30px;
+      text-align: center;
+    }
+    
+    .cart-total {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      display: none;
+    }
+    
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cart-total-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .cart-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .cart-item {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .cart-item-image {
+        width: 100%;
+        height: 200px;
+      }
+      
+      .cart-actions {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Auto<span>Parts</span></a>
+      </div>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="index.html#brands">Бренды</a></li>
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#contacts">Контакты</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основное содержимое корзины -->
+  <main class="cart-container">
+    <h1>Ваша корзина</h1>
+    
+    <div class="cart-empty">
+      <p>Ваша корзина пуста</p>
+      <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
+    </div>
+    
+    <div class="cart-items">
+      <!-- Товары будут добавлены динамически через JavaScript -->
+    </div>
+    
+    <div class="cart-total">
+      <!-- Общая сумма будет рассчитана динамически -->
+    </div>
+    
+    <div class="cart-actions">
+      <button class="btn btn-outline cart-clear-btn">
+        <i class="fas fa-trash"></i> Очистить корзину
+      </button>
+      <button class="btn btn-primary cart-checkout-btn">
+        <i class="fas fa-credit-card"></i> Оформить заказ
+      </button>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>AutoParts</h3>
+          <p>Интернет-магазин автозапчастей №1 в России. Качество, надежность, выгодные цены.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="#">Двигатель</a></li>
+            <li><a href="#">Тормозная система</a></li>
+            <li><a href="#">Подвеска</a></li>
+            <li><a href="#">Электрооборудование</a></li>
+            <li><a href="#">Фильтры</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Помощь</h3>
+          <ul class="footer-links">
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Гарантия и возврат</a></li>
+            <li><a href="#">Как сделать заказ</a></li>
+            <li><a href="#">Вопросы и ответы</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на наши новости и получите скидку 10% на первый заказ!</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit" class="btn btn-small">Подписаться</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 AutoParts. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипты -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  
+  <script>
+    // Инициализация корзины при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+      initCart();
+    });
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

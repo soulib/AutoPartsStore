@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Интернет-магазин автозапчастей. Оригинальные запчасти для всех марок автомобилей с доставкой по всей России.">
+  <title>AutoParts - Магазин автозапчастей</title>
+  
+ 
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+ 
+  <link rel="stylesheet" href="css/style.css">
+  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Auto<span>Parts</span></a>
+      </div>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="#brands">Бренды</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Герой секция -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Оригинальные запчасти для вашего автомобиля</h1>
+        <p>Более 10 000 наименований запчастей для всех марок автомобилей с гарантией качества</p>
+        <div class="hero-buttons">
+          <a href="catalog.html" class="btn btn-primary">Перейти в каталог</a>
+          <a href="#consult" class="btn btn-secondary">Получить консультацию</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="advantages py-3" id="advantages">
+    <div class="container">
+      <h2 class="text-center">Почему выбирают нас</h2>
+      
+      <div class="advantages-grid">
+        <div class="advantage-item">
+          <div class="advantage-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Гарантия качества</h3>
+          <p>Все запчасти проходят тщательную проверку перед продажей. Мы работаем только с проверенными поставщиками.</p>
+        </div>
+        
+        <div class="advantage-item">
+          <div class="advantage-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3>Быстрая доставка</h3>
+          <p>Доставка по всей России от 1 дня. Самовывоз из 50 пунктов выдачи в вашем городе.</p>
+        </div>
+        
+        <div class="advantage-item">
+          <div class="advantage-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Лучшие цены</h3>
+          <p>Прямые поставки от производителей позволяют нам предлагать лучшие цены на рынке.</p>
+        </div>
+        
+        <div class="advantage-item">
+          <div class="advantage-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Поддержка 24/7</h3>
+          <p>Наши специалисты всегда готовы помочь с выбором запчастей и ответить на ваши вопросы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Популярные товары -->
+  <section class="catalog py-3" id="popular">
+    <div class="container">
+      <h2 class="text-center">Популярные запчасти</h2>
+      
+      <div class="parts-grid">
+        <!-- Товар 1 -->
+        <div class="part-item" data-id="1" data-category="engine">
+          <div class="part-image">
+            <img src="images/parts/engine-oil.jpg" alt="Моторное масло" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Моторное масло Castrol 5W-40</h3>
+            <p class="part-category">Для двигателя</p>
+            <p class="price">2 450 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 2 -->
+        <div class="part-item" data-id="2" data-category="brakes">
+          <div class="part-image">
+            <img src="images/parts/brake-pads.jpg" alt="Тормозные колодки" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Тормозные колодки Brembo</h3>
+            <p class="part-category">Тормозная система</p>
+            <p class="price">3 890 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 3 -->
+        <div class="part-item" data-id="3" data-category="filters">
+          <div class="part-image">
+            <img src="images/parts/air-filter.jpg" alt="Воздушный фильтр" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Воздушный фильтр Mann</h3>
+            <p class="part-category">Фильтры</p>
+            <p class="price">1 250 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 4 -->
+        <div class="part-item" data-id="4" data-category="battery">
+          <div class="part-image">
+            <img src="images/parts/battery.jpg" alt="Аккумулятор" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Аккумулятор Varta Blue Dynamic</h3>
+            <p class="part-category">Электрооборудование</p>
+            <p class="price">5 990 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-3">
+        <a href="catalog.html" class="btn btn-outline">Смотреть все товары</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Бренды -->
+  <section class="brands py-3 bg-light" id="brands">
+    <div class="container">
+      <h2 class="text-center">Наши бренды</h2>
+      
+      <div class="brands-grid">
+        <div class="brand-item">
+          <img src="images/brands/bosch.png" alt="Bosch" loading="lazy">
+        </div>
+        <div class="brand-item">
+          <img src="images/brands/castrol.png" alt="Castrol" loading="lazy">
+        </div>
+        <div class="brand-item">
+          <img src="images/brands/mann.png" alt="Mann" loading="lazy">
+        </div>
+        <div class="brand-item">
+          <img src="images/brands/brembo.png" alt="Brembo" loading="lazy">
+        </div>
+        <div class="brand-item">
+          <img src="images/brands/mobil.png" alt="Mobil" loading="lazy">
+        </div>
+        <div class="brand-item">
+          <img src="images/brands/ngk.png" alt="NGK" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О компании -->
+  <section class="about py-3" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="images/about.jpg" alt="Наш магазин" loading="lazy">
+        </div>
+        <div class="about-content">
+          <h2>О нашей компании</h2>
+          <p>AutoParts - это крупнейший онлайн-магазин автозапчастей в России. Мы работаем на рынке уже более 15 лет и за это время заслужили доверие десятков тысяч клиентов.</p>
+          <p>Наш ассортимент включает более 10 000 наименований запчастей для всех марок автомобилей - от ВАЗ до премиальных брендов.</p>
+          <ul class="about-features">
+            <li><i class="fas fa-check"></i> Только оригинальные запчасти</li>
+            <li><i class="fas fa-check"></i> Гарантия на все товары</li>
+            <li><i class="fas fa-check"></i> Профессиональные консультации</li>
+            <li><i class="fas fa-check"></i> Быстрая доставка по всей России</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="testimonials py-3 bg-light">
+    <div class="container">
+      <h2 class="text-center">Отзывы наших клиентов</h2>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Отличный магазин! Быстро нашел нужные запчасти на свой Volkswagen. Доставили на следующий день, все в оригинальной упаковке. Рекомендую!"</p>
+            <div class="testimonial-author">
+              <img src="images/testimonials/user1.jpg" alt="Иван Петров" loading="lazy">
+              <div>
+                <h4>Иван Петров</h4>
+                <p>Volkswagen Passat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Пользуюсь услугами этого магазина уже несколько лет. Всегда находят редкие запчасти на мой BMW. Цены ниже, чем у официальных дилеров."</p>
+            <div class="testimonial-author">
+              <img src="images/testimonials/user2.jpg" alt="Алексей Смирнов" loading="lazy">
+              <div>
+                <h4>Алексей Смирнов</h4>
+                <p>BMW X5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Заказал тормозные колодки, пришли точно в срок. Качество на высоте, установил сам - все подошло идеально. Буду обращаться еще!"</p>
+            <div class="testimonial-author">
+              <img src="images/testimonials/user3.jpg" alt="Дмитрий Иванов" loading="lazy">
+              <div>
+                <h4>Дмитрий Иванов</h4>
+                <p>Toyota Camry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider-controls">
+          <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Консультация -->
+  <section class="consult py-3" id="consult">
+    <div class="container">
+      <div class="consult-grid">
+        <div class="consult-content">
+          <h2>Нужна помощь в подборе запчастей?</h2>
+          <p>Наши специалисты помогут вам подобрать нужные запчасти для вашего автомобиля. Оставьте заявку и мы свяжемся с вами в течение 15 минут.</p>
+          <ul class="consult-features">
+            <li><i class="fas fa-check"></i> Бесплатная консультация</li>
+            <li><i class="fas fa-check"></i> Подбор аналогов</li>
+            <li><i class="fas fa-check"></i> Проверка совместимости</li>
+          </ul>
+        </div>
+        
+        <div class="consult-form">
+          <form id="consultation-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Телефон" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="car" placeholder="Марка и модель автомобиля">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Получить консультацию</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="contacts py-3" id="contacts">
+    <div class="container">
+      <h2 class="text-center">Контакты</h2>
+      
+      <div class="contacts-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Адрес</h4>
+            <p>г. Москва, ул. Автозаводская, д. 23</p>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h4>Телефон</h4>
+            <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p><a href="mailto:info@autoparts.ru">info@autoparts.ru</a></p>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <h4>Режим работы</h4>
+            <p>Пн-Пт: 9:00 - 20:00<br>Сб-Вс: 10:00 - 18:00</p>
+          </div>
+        </div>
+        
+        <div class="contact-map">
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" frameborder="0" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>AutoParts</h3>
+          <p>Интернет-магазин автозапчастей №1 в России. Качество, надежность, выгодные цены.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="#">Двигатель</a></li>
+            <li><a href="#">Тормозная система</a></li>
+            <li><a href="#">Подвеска</a></li>
+            <li><a href="#">Электрооборудование</a></li>
+            <li><a href="#">Фильтры</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Помощь</h3>
+          <ul class="footer-links">
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Гарантия и возврат</a></li>
+            <li><a href="#">Как сделать заказ</a></li>
+            <li><a href="#">Вопросы и ответы</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на наши новости и получите скидку 10% на первый заказ!</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit" class="btn btn-small">Подписаться</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 AutoParts. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img class="modal-img" src="" alt="">
+    </div>
+  </div>
+
+	
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

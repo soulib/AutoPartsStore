@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог автозапчастей - AutoParts</title>
+  
+ 
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* Дополнительные стили для каталога */
+    .catalog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .catalog-filters {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .filter-group h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background-color: var(--light-color);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .sort-options {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .sort-select {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--gray-color);
+    }
+    
+    @media (max-width: 768px) {
+      .catalog-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .filter-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Auto<span>Parts</span></a>
+      </div>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html" class="active">Каталог</a></li>
+          <li><a href="index.html#brands">Бренды</a></li>
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#contacts">Контакты</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основное содержимое каталога -->
+  <main class="catalog py-3">
+    <div class="container">
+      <div class="catalog-header">
+        <h1>Каталог автозапчастей</h1>
+        
+        <div class="sort-options">
+          <label for="sort">Сортировка:</label>
+          <select id="sort" class="sort-select">
+            <option value="popular">По популярности</option>
+            <option value="price-asc">По возрастанию цены</option>
+            <option value="price-desc">По убыванию цены</option>
+            <option value="name">По названию</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="catalog-filters">
+        <div class="filter-group">
+          <h3>Категории</h3>
+          <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="engine">Двигатель</button>
+            <button class="filter-btn" data-filter="transmission">Трансмиссия</button>
+            <button class="filter-btn" data-filter="brakes">Тормоза</button>
+            <button class="filter-btn" data-filter="suspension">Подвеска</button>
+            <button class="filter-btn" data-filter="electrical">Электрика</button>
+            <button class="filter-btn" data-filter="body">Кузов</button>
+            <button class="filter-btn" data-filter="filters">Фильтры</button>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <h3>Марка автомобиля</h3>
+          <div class="filter-options">
+            <button class="filter-btn" data-filter="vaz">ВАЗ</button>
+            <button class="filter-btn" data-filter="gaz">ГАЗ</button>
+            <button class="filter-btn" data-filter="vw">Volkswagen</button>
+            <button class="filter-btn" data-filter="bmw">BMW</button>
+            <button class="filter-btn" data-filter="audi">Audi</button>
+            <button class="filter-btn" data-filter="toyota">Toyota</button>
+            <button class="filter-btn" data-filter="hyundai">Hyundai</button>
+            <button class="filter-btn" data-filter="kia">Kia</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="parts-grid">
+        <!-- Товар 1 -->
+        <div class="part-item" data-id="1" data-category="engine" data-brand="vw" data-price="2450" data-popularity="5">
+          <a href="product.html?id=1">
+          </a>
+          <div class="part-image">
+            <img src="images/parts/engine-oil.jpg" alt="Моторное масло" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Моторное масло Castrol 5W-40</h3>
+            <p class="part-category">Для двигателя</p>
+            <p class="price">2 450 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 2 -->
+        <div class="part-item" data-id="2" data-category="brakes" data-brand="bmw" data-price="3890" data-popularity="4">
+          <div class="part-image">
+            <a href="product.html?id=2"></a>
+            <img src="images/parts/brake-pads.jpg" alt="Тормозные колодки" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Тормозные колодки Brembo</h3>
+            <p class="part-category">Тормозная система</p>
+            <p class="price">3 890 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 3 -->
+        <div class="part-item" data-id="3" data-category="filters" data-brand="toyota" data-price="1250" data-popularity="3">
+          <div class="part-image">
+            <a href="product.html?id=3"></a>
+            <img src="images/parts/air-filter.jpg" alt="Воздушный фильтр" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Воздушный фильтр Mann</h3>
+            <p class="part-category">Фильтры</p>
+            <p class="price">1 250 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 4 -->
+        <div class="part-item" data-id="4" data-category="electrical" data-brand="audi" data-price="5990" data-popularity="4">
+          <div class="part-image">
+            <a href="product.html?id=4"></a>
+            <img src="images/parts/battery.jpg" alt="Аккумулятор" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Аккумулятор Varta Blue Dynamic</h3>
+            <p class="part-category">Электрооборудование</p>
+            <p class="price">5 990 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 5 -->
+        <div class="part-item" data-id="5" data-category="suspension" data-brand="hyundai" data-price="3250" data-popularity="3">
+          <div class="part-image">
+            <a href="product.html?id=5"></a>
+            <img src="images/parts/shock-absorber.jpg" alt="Амортизатор" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Амортизатор KYB Excel-G</h3>
+            <p class="part-category">Подвеска</p>
+            <p class="price">3 250 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 6 -->
+        <div class="part-item" data-id="6" data-category="transmission" data-brand="kia" data-price="7890" data-popularity="2">
+          <div class="part-image">
+            <a href="product.html?id=6"></a>
+            <img src="images/parts/clutch-kit.jpg" alt="Комплект сцепления" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Комплект сцепления LUK</h3>
+            <p class="part-category">Трансмиссия</p>
+            <p class="price">7 890 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 7 -->
+        <div class="part-item" data-id="7" data-category="body" data-brand="vaz" data-price="850" data-popularity="4">
+          <div class="part-image">
+            <a href="product.html?id=7"></a>
+            <img src="images/parts/headlight.jpg" alt="Фара" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Фара передняя ВАЗ 2110</h3>
+            <p class="part-category">Кузов</p>
+            <p class="price">850 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 8 -->
+        <div class="part-item" data-id="8" data-category="engine" data-brand="gaz" data-price="1750" data-popularity="2">
+          <div class="part-image">
+            <a href="product.html?id=8"></a>
+            <img src="images/parts/spark-plug.jpg" alt="Свеча зажигания" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Свеча зажигания NGK</h3>
+            <p class="part-category">Для двигателя</p>
+            <p class="price">1 750 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Пагинация -->
+      <div class="pagination">
+        <button class="btn btn-outline" disabled>Назад</button>
+        <button class="btn btn-outline active">1</button>
+        <button class="btn btn-outline">2</button>
+        <button class="btn btn-outline">3</button>
+        <button class="btn btn-outline">Вперед</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>AutoParts</h3>
+          <p>Интернет-магазин автозапчастей №1 в России. Качество, надежность, выгодные цены.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="#">Двигатель</a></li>
+            <li><a href="#">Тормозная система</a></li>
+            <li><a href="#">Подвеска</a></li>
+            <li><a href="#">Электрооборудование</a></li>
+            <li><a href="#">Фильтры</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Помощь</h3>
+          <ul class="footer-links">
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Гарантия и возврат</a></li>
+            <li><a href="#">Как сделать заказ</a></li>
+            <li><a href="#">Вопросы и ответы</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на наши новости и получите скидку 10% на первый заказ!</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit" class="btn btn-small">Подписаться</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2023 AutoParts. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипты -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  
+  <script>
+    // Фильтрация и сортировка товаров
+    document.addEventListener('DOMContentLoaded', function() {
+      // Фильтрация по категориям
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const partItems = document.querySelectorAll('.part-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Удаляем активный класс у всех кнопок в группе
+          const group = this.closest('.filter-group');
+          group.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Добавляем активный класс текущей кнопке
+          this.classList.add('active');
+          
+          const filterValue = this.getAttribute('data-filter');
+          const filterGroup = this.closest('.filter-group').querySelector('h3').textContent;
+          
+          // Фильтрация товаров
+          partItems.forEach(item => {
+            if (filterGroup === 'Категории') {
+              if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            } else if (filterGroup === 'Марка автомобиля') {
+              if (filterValue === 'all' || item.getAttribute('data-brand') === filterValue) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+      
+      // Сортировка товаров
+      const sortSelect = document.getElementById('sort');
+      sortSelect.addEventListener('change', function() {
+        const sortValue = this.value;
+        const container = document.querySelector('.parts-grid');
+        const items = Array.from(document.querySelectorAll('.part-item'));
+        
+        items.sort((a, b) => {
+          switch(sortValue) {
+            case 'price-asc':
+              return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+            case 'price-desc':
+              return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+            case 'name':
+              return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+            case 'popular':
+            default:
+              return parseFloat(b.getAttribute('data-popularity')) - parseFloat(a.getAttribute('data-popularity'));
+          }
+        });
+        
+        // Очищаем контейнер
+        container.innerHTML = '';
+        
+        // Добавляем отсортированные элементы
+        items.forEach(item => {
+          container.appendChild(item);
+        });
+      });
+    });
+  </script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

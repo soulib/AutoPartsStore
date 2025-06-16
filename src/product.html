@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моторное масло Castrol 5W-40 - AutoParts</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="/css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* Дополнительные стили для страницы товара */
+    .product-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .product-gallery {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1rem;
+    }
+    
+    .product-thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .product-thumbnail {
+      width: 80px;
+      height: 80px;
+      border: 1px solid var(--gray-color);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .product-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-thumbnail.active {
+      border-color: var(--primary-color);
+    }
+    
+    .product-main-image {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .product-main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .product-info {
+      padding: 1rem;
+    }
+    
+    .product-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+    
+    .product-sku {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 1.5rem 0;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .product-quantity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .product-quantity input {
+      width: 60px;
+      text-align: center;
+      padding: 0.5rem;
+      border: 1px solid var(--gray-color);
+      border-radius: 4px;
+    }
+    
+    .product-tabs {
+      margin-top: 3rem;
+    }
+    
+    .product-tabs-header {
+      display: flex;
+      border-bottom: 1px solid var(--gray-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-tab {
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: 500;
+    }
+    
+    .product-tab.active {
+      border-bottom-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .product-tab-content {
+      display: none;
+    }
+    
+    .product-tab-content.active {
+      display: block;
+    }
+    
+    .product-specs {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .product-specs tr:nth-child(even) {
+      background-color: var(--light-color);
+    }
+    
+    .product-specs td {
+      padding: 0.8rem;
+      border: 1px solid var(--gray-color);
+    }
+    
+    .product-specs td:first-child {
+      font-weight: 500;
+      width: 30%;
+    }
+    
+    .product-reviews {
+      margin-top: 1.5rem;
+    }
+    
+    .product-review {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--gray-color);
+    }
+    
+    .product-review-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-review-author {
+      font-weight: 500;
+    }
+    
+    .product-review-date {
+      color: var(--accent-color);
+      font-size: 0.9rem;
+    }
+    
+    .product-review-rating {
+      color: var(--warning-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .related-products {
+      margin-top: 4rem;
+    }
+    
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-gallery {
+        grid-template-columns: 60px 1fr;
+      }
+      
+      .product-thumbnail {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .product-main-image {
+        height: 300px;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="/index.html">Auto<span>Parts</span></a>
+      </div>
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/index.html">Главная</a></li>
+          <li><a href="/catalog.html">Каталог</a></li>
+          <li><a href="/index.html#brands">Бренды</a></li>
+          <li><a href="/index.html#about">О нас</a></li>
+          <li><a href="/index.html#contacts">Контакты</a></li>
+          <li>
+            <a href="/cart.html" class="cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основное содержимое страницы товара -->
+  <main class="product-container">
+    <div class="product-grid">
+      <!-- Галерея товара -->
+      <div class="product-gallery">
+        <div class="product-thumbnails">
+          <div class="product-thumbnail active">
+            <img src="/images/parts/engine-oil.jpg" alt="Моторное масло Castrol 5W-40" loading="lazy">
+          </div>
+          <div class="product-thumbnail">
+            <img src="/images/parts/engine-oil-2.jpg" alt="Моторное масло Castrol 5W-40 (упаковка)" loading="lazy">
+          </div>
+          <div class="product-thumbnail">
+            <img src="/images/parts/engine-oil-3.jpg" alt="Моторное масло Castrol 5W-40 (характеристики)" loading="lazy">
+          </div>
+          <div class="product-thumbnail">
+            <img src="/images/parts/engine-oil-4.jpg" alt="Моторное масло Castrol 5W-40 (сертификаты)" loading="lazy">
+          </div>
+        </div>
+        
+        <div class="product-main-image">
+          <img src="/images/parts/engine-oil.jpg" alt="Моторное масло Castrol 5W-40" id="main-product-image">
+        </div>
+      </div>
+      
+      <!-- Информация о товаре -->
+      <div class="product-info">
+        <h1 class="product-title">Моторное масло Castrol 5W-40</h1>
+        <div class="product-sku">Артикул: CP-2450-5W40</div>
+        
+        <div class="product-rating">
+          <span class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="rating-value">4.5</span>
+          <span class="reviews-count">(12 отзывов)</span>
+        </div>
+        
+        <div class="product-price">2 450 ₽</div>
+        
+        <div class="product-availability in-stock">
+          <i class="fas fa-check-circle"></i> В наличии (15 шт.)
+        </div>
+        
+        <div class="product-delivery">
+          <p><i class="fas fa-truck"></i> Доставка по Москве - 300 ₽</p>
+          <p><i class="fas fa-box"></i> Самовывоз из 12 пунктов</p>
+        </div>
+        
+        <div class="product-actions">
+          <div class="product-quantity">
+            <label for="quantity">Количество:</label>
+            <input type="number" id="quantity" min="1" max="10" value="1">
+          </div>
+          <button class="btn btn-primary add-to-cart" data-id="1">Добавить в корзину</button>
+        </div>
+        
+        <div class="product-short-desc">
+          <p>Синтетическое моторное масло Castrol EDGE 5W-40 с технологией Fluid Titanium обеспечивает максимальную защиту двигателя и повышает его производительность.</p>
+        </div>
+        
+        <div class="product-features">
+          <ul>
+            <li><i class="fas fa-check"></i> Подходит для бензиновых и дизельных двигателей</li>
+            <li><i class="fas fa-check"></i> Соответствует спецификациям API SN, ACEA A3/B3, A3/B4</li>
+            <li><i class="fas fa-check"></i> Объем: 4 литра</li>
+            <li><i class="fas fa-check"></i> Оригинальная продукция Castrol</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Табы с описанием и характеристиками -->
+    <div class="product-tabs">
+      <div class="product-tabs-header">
+        <div class="product-tab active" data-tab="description">Описание</div>
+        <div class="product-tab" data-tab="specs">Характеристики</div>
+        <div class="product-tab" data-tab="reviews">Отзывы (12)</div>
+        <div class="product-tab" data-tab="delivery">Доставка и оплата</div>
+      </div>
+      
+      <div class="product-tab-content active" id="description">
+        <h3>Описание товара</h3>
+        <p>Castrol EDGE 5W-40 - это полностью синтетическое моторное масло премиум-класса с технологией Fluid Titanium, которая усиливает молекулярные связи масла под нагрузкой, обеспечивая исключительную защиту и производительность двигателя.</p>
+        <p>Масло специально разработано для современных высокофорсированных двигателей с турбонаддувом и непосредственным впрыском топлива. Оно обеспечивает:</p>
+        <ul>
+          <li>Максимальную защиту от износа даже в экстремальных условиях</li>
+          <li>Снижение трения для улучшенной топливной экономичности</li>
+          <li>Отличную стабильность при высоких температурах</li>
+          <li>Быстрый запуск двигателя в холодную погоду</li>
+          <li>Защиту от образования отложений и шлама</li>
+        </ul>
+        <p>Рекомендовано для использования в автомобилях BMW, Mercedes-Benz, Volkswagen, Audi, Porsche и других марок премиум-сегмента.</p>
+      </div>
+      
+      <div class="product-tab-content" id="specs">
+        <h3>Технические характеристики</h3>
+        <table class="product-specs">
+          <tr>
+            <td>Бренд</td>
+            <td>Castrol</td>
+          </tr>
+          <tr>
+            <td>Модель</td>
+            <td>EDGE 5W-40</td>
+          </tr>
+          <tr>
+            <td>Тип масла</td>
+            <td>Полностью синтетическое</td>
+          </tr>
+          <tr>
+            <td>Вязкость</td>
+            <td>5W-40</td>
+          </tr>
+          <tr>
+            <td>Объем</td>
+            <td>4 литра</td>
+          </tr>
+          <tr>
+            <td>Спецификации</td>
+            <td>API SN/CF, ACEA A3/B3, A3/B4</td>
+          </tr>
+          <tr>
+            <td>Одобрения</td>
+            <td>BMW Longlife-01, MB-Approval 229.3/229.5, VW 502 00/505 00, Porsche A40</td>
+          </tr>
+          <tr>
+            <td>Температура застывания</td>
+            <td>-39°C</td>
+          </tr>
+          <tr>
+            <td>Температура вспышки</td>
+            <td>226°C</td>
+          </tr>
+          <tr>
+            <td>Плотность при 15°C</td>
+            <td>0.855 кг/л</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="product-tab-content" id="reviews">
+        <h3>Отзывы о товаре</h3>
+        
+        <div class="product-reviews">
+          <div class="product-review">
+            <div class="product-review-header">
+              <span class="product-review-author">Иван Петров</span>
+              <span class="product-review-date">15.05.2023</span>
+            </div>
+            <div class="product-review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="product-review-text">
+              <p>Отличное масло, использую уже третий раз. Двигатель работает тихо, расход масла минимальный. Рекомендую!</p>
+            </div>
+          </div>
+          
+          <div class="product-review">
+            <div class="product-review-header">
+              <span class="product-review-author">Алексей Смирнов</span>
+              <span class="product-review-date">02.04.2023</span>
+            </div>
+            <div class="product-review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="product-review-text">
+              <p>Хорошее масло, но цена немного завышена. Двигатель работает ровно, зимой запускается без проблем.</p>
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-outline">Оставить отзыв</button>
+      </div>
+      
+      <div class="product-tab-content" id="delivery">
+        <h3>Доставка и оплата</h3>
+        <p>Мы предлагаем несколько удобных способов доставки и оплаты:</p>
+        
+        <h4>Способы доставки:</h4>
+        <ul>
+          <li><strong>Курьерская доставка</strong> - по Москве в течение 1-2 дней (300 ₽)</li>
+          <li><strong>Самовывоз</strong> - из наших пунктов выдачи (бесплатно)</li>
+          <li><strong>Почта России</strong> - доставка по всей стране (от 350 ₽)</li>
+          <li><strong>Транспортные компании</strong> - СДЭК, Деловые Линии и др.</li>
+        </ul>
+        
+        <h4>Способы оплаты:</h4>
+        <ul>
+          <li><strong>Наличными</strong> - при получении товара</li>
+          <li><strong>Банковской картой</strong> - онлайн или при получении</li>
+          <li><strong>Безналичный расчет</strong> - для юридических лиц</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Сопутствующие товары -->
+    <div class="related-products">
+      <h2>Сопутствующие товары</h2>
+      <div class="parts-grid">
+        <!-- Товар 1 -->
+        <div class="part-item" data-id="9" data-category="filters" data-brand="mann" data-price="950" data-popularity="3"> <a href="product.html?id=9"></a>
+          <div class="part-image">
+            <img src="/images/parts/oil-filter.jpg" alt="Масляный фильтр" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Масляный фильтр Mann</h3>
+            <p class="part-category">Фильтры</p>
+            <p class="price">950 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 2 -->
+        <div class="part-item" data-id="10"  data-category="engine" data-brand="liqui-moly" data-price="1250" data-popularity="4"> <a href="product.html?id=10"></a>
+          <div class="part-image">
+            <img src="/images/parts/engine-cleaner.jpg" alt="Очиститель двигателя" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Очиститель двигателя Liqui Moly</h3>
+            <p class="part-category">Для двигателя</p>
+            <p class="price">1 250 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+        
+        <!-- Товар 3 -->
+        <div class="part-item" data-id="11" data-category="engine" data-brand="castrol" data-price="2750" data-popularity="3"> <a href="product.html?id=11"></a>
+          <div class="part-image">
+            <img src="/images/parts/transmission-oil.jpg" alt="Трансмиссионное масло" loading="lazy">
+          </div>
+          <div class="part-info">
+            <h3>Трансмиссионное масло Castrol</h3>
+            <p class="part-category">Трансмиссия</p>
+            <p class="price">2 750 ₽</p>
+            <button class="btn btn-small add-to-cart">В корзину</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>AutoParts</h3>
+          <p>Интернет-магазин автозапчастей №1 в России. Качество, надежность, выгодные цены.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="/catalog.html">Двигатель</a></li>
+            <li><a href="/catalog.html">Тормозная система</a></li>
+            <li><a href="/catalog.html">Подвеска</a></li>
+            <li><a href="/catalog.html">Электрооборудование</a></li>
+            <li><a href="/catalog.html">Фильтры</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Помощь</h3>
+          <ul class="footer-links">
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Гарантия и возврат</a></li>
+            <li><a href="#">Как сделать заказ</a></li>
+            <li><a href="#">Вопросы и ответы</a></li>
+            <li><a href="/index.html#contacts">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на наши новости и получите скидку 10% на первый заказ!</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit" class="btn btn-small">Подписаться</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 AutoParts. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипты -->
+  <script src="/js/main.js"></script>
+  <script src="/js/cart.js"></script>
+  
+  <script>
+    // Инициализация страницы товара
+    document.addEventListener('DOMContentLoaded', function() {
+      // Переключение изображений в галерее
+      const thumbnails = document.querySelectorAll('.product-thumbnail');
+      const mainImage = document.getElementById('main-product-image');
+      
+      thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+          // Удаляем активный класс у всех миниатюр
+          thumbnails.forEach(t => t.classList.remove('active'));
+          
+          // Добавляем активный класс текущей миниатюре
+          this.classList.add('active');
+          
+          // Обновляем основное изображение
+          const newSrc = this.querySelector('img').src;
+          mainImage.src = newSrc;
+        });
+      });
+      
+      // Переключение табов
+      const tabs = document.querySelectorAll('.product-tab');
+      const tabContents = document.querySelectorAll('.product-tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab');
+          
+          // Удаляем активный класс у всех табов и контента
+          tabs.forEach(t => t.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Добавляем активный класс текущему табу и контенту
+          this.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      // Добавление в корзину
+      document.querySelector('.add-to-cart')?.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        const productName = document.querySelector('.product-title').textContent;
+        const productPrice = document.querySelector('.product-price').textContent;
+        const productImage = mainImage.src;
+        const quantity = parseInt(document.getElementById('quantity').value);
+        
+        let cartItems = getCartItems();
+        
+        // Проверяем, есть ли уже такой товар в корзине
+        const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+        
+        if (existingItemIndex >= 0) {
+          // Увеличиваем количество, если товар уже есть
+          cartItems[existingItemIndex].quantity += quantity;
+        } else {
+          // Добавляем новый товар
+          cartItems.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: quantity
+          });
+        }
+        
+        saveCartItems(cartItems);
+        updateCartCounter(cartItems.length);
+        
+        // Показываем уведомление
+        showNotification(`"${productName}" добавлен в корзину`);
+      });
+    });
+    
+    // Функция для показа уведомлений
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 10);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 300);
+      }, 3000);
+    }
+  </script>
+ <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+<link rel="stylesheet" href="css/tablet.css" media="(min-width: 768px) and (max-width: 1023px)">
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
